@@ -1,0 +1,24 @@
+                                                                 
+                                                                 
+                                                                 
+	               AAA           TTTTTTTTTTTTTTTTTTTTTTT     IIIIIIIIII
+	              A:::A          T:::::::::::::::::::::T     I::::::::I
+	             A:::::A         T:::::::::::::::::::::T     I::::::::I
+	            A:::::::A        T:::::TT:::::::TT:::::T     II::::::II
+	           A:::::::::A       TTTTTT  T:::::T  TTTTTT       I::::I  
+	          A:::::A:::::A              T:::::T               I::::I  
+	         A:::::A A:::::A             T:::::T               I::::I  
+	        A:::::A   A:::::A            T:::::T               I::::I  
+	       A:::::A     A:::::A           T:::::T               I::::I  
+	      A:::::AAAAAAAAA:::::A          T:::::T               I::::I  
+	     A:::::::::::::::::::::A         T:::::T               I::::I  
+	    A:::::AAAAAAAAAAAAA:::::A        T:::::T               I::::I  
+	   A:::::A             A:::::A     TT:::::::TT           II::::::II
+	  A:::::A               A:::::A    T:::::::::T           I::::::::I
+	 A:::::A                 A:::::A   T:::::::::T           I::::::::I
+	AAAAAAA                   AAAAAAA  TTTTTTTTTTT           IIIIIIIIII
+
+
+	Harnest Inventory Web Service By @ ATI Mobile Apps Developer Team
+	
+							

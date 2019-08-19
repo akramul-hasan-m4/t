@@ -1,0 +1,7 @@
+actuator/metrics/
+actuator/health/
+actuator/info/
+actuator/loggers/
+actuator/sessions/
+actuator/threaddump/
+actuator/auditevents/

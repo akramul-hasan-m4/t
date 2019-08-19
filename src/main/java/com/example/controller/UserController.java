@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.SimpleBeanPropTest;
 import com.example.model.UserInfo;
 import com.example.service.UserInfoService;
 
@@ -24,10 +26,15 @@ import com.example.service.UserInfoService;
 public class UserController {
 	@Autowired
 	private UserInfoService userService;
+	
+	//@Qualifier("gg")
+	 @Autowired SimpleBeanPropTest prop ;
 
 	@GetMapping("/user")
 	public Object getAllUser(@RequestHeader HttpHeaders requestHeader) {
 		System.out.println(">>> "+new BCryptPasswordEncoder().encode("ati"));
+		System.out.println(">>msggg...> "+prop.gg());
+		
 		List<UserInfo> userInfos = userService.getAllActiveUserInfo();
 		if (userInfos == null || userInfos.isEmpty()) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);

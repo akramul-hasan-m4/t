@@ -1,53 +1,34 @@
-package com.example.config;
+package com.harnest.inventory.ws.configuration;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.example.SimpleBeanPropTest;
-import com.example.service.UserDetailsServiceImpl;
-
-
+import com.harnest.inventory.ws.serviceimpl.UserDetailsServiceImpl;
+/**
+ * @author Akramul
+ * @since 25 jul 2019
+ * @version 1.0.0
+ */
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	UserDetailsServiceImpl userDetailsService;
-	
-	@Bean
-	@Qualifier("prop")
-	public SimpleBeanPropTest prop() {
-		return new SimpleBeanPropTest();
-	}
-	
-	
-	/*
-	 * @Override protected void configure(HttpSecurity http) throws Exception { http
-	 * .csrf().disable() .sessionManagement()
-	 * .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-	 * 
-	 * .and() .authorizeRequests() .antMatchers("/oauth/token", "/h2-console")
-	 * .permitAll().and() .headers().frameOptions().sameOrigin();
-	 * 
-	 * 
-	 * }
-	 */
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Autowired UserDetailsServiceImpl userDetailsService;
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().mvcMatchers(HttpMethod.OPTIONS, "/**");
-		// ignore swagger
-		web.ignoring().mvcMatchers("/swagger-ui.html/**","/swagger/**", "/configuration/**", "/swagger-resources/**", "/v2/api-docs",
+		
+		web.ignoring().mvcMatchers("/swagger-ui.html/**", "/swagger/**", "/configuration/**", "/swagger-resources/**", "/v2/api-docs",
 				"/webjars/**");
 	}
 
@@ -63,6 +44,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
+	@Bean
+	public SessionRegistry sessionRegistry() {
+		return new SessionRegistryImpl();
+	}
 
 	@Override
 	@Bean
@@ -74,4 +60,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(authenticationProvider());
 	}
+	 
 }

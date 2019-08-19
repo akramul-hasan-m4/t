@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "basic.auth.client.secret",
+    "type": "java.lang.String",
+    "description": "This is the Basic Auth client secret for harnest inventory web web service'"
+  },
+  {
+    "name": "basic.auth.client.id",
+    "type": "java.lang.String",
+    "description": "This is the Basic Auth client Id for harnest inventory web web service'"
+  },
+  {
+    "name": "host.full.dns.auth.link",
+    "type": "java.lang.String",
+    "description": "This is the Context path for harnest inventory web web service'"
+  }
+]}
